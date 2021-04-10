@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "./RegistrationContainer.scss";
 import logo from "./availity_logo.png";
 import { RegistrationForm } from "../RegistrationForm";
+import { RegistrationConfirmation } from "../RegistrationConfirmation";
 
 export const RegistrationContainer = () => {
+  const [validRegistration, setValidRegistration] = useState(false);
   return (
     <div className="RegistrationContainer">
       <div className="RegistrationContainer__header">
@@ -25,7 +27,11 @@ export const RegistrationContainer = () => {
         </div>
       </div>
       <div className="RegistrationContainer__body">
-        <RegistrationForm />
+        {validRegistration ? (
+          <RegistrationConfirmation />
+        ) : (
+          <RegistrationForm onSubmit={(val) => setValidRegistration(val)} />
+        )}
       </div>
     </div>
   );

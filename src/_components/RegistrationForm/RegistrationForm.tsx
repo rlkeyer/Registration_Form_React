@@ -2,8 +2,13 @@ import React, { useState } from "react";
 import { TextInput } from "../TextInput";
 import { ReactComponent as MedicalLogo } from "../../undraw_medicine.svg";
 import "./RegistrationForm.scss";
+import { Button } from "../Button";
 
-export const RegistrationForm = () => {
+export const RegistrationForm = ({
+  onSubmit,
+}: {
+  onSubmit: (val: boolean) => void;
+}) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [npiNumber, setNpiNumber] = useState("");
@@ -47,8 +52,10 @@ export const RegistrationForm = () => {
         email,
       };
       console.log({ formData: data });
+      onSubmit(true);
     } else {
       console.log("Please complete all fields to continue");
+      onSubmit(false);
     }
     e.preventDefault();
   };
@@ -112,13 +119,7 @@ export const RegistrationForm = () => {
             />
           </label>
         </div>
-        <button
-          className="RegistrationForm__inputs-submit"
-          type="submit"
-          onSubmit={handleSubmit}
-        >
-          Create Account
-        </button>
+        <Button type="submit">Create Account</Button>
       </form>
       <div className="RegistrationForm__medical-logo">
         <MedicalLogo className="RegistrationForm__svg" />
