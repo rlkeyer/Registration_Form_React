@@ -1,9 +1,8 @@
 .TextInput {
   display: flex;
   align-items: center;
-  border: 2px solid #e6e6e6;
+  border: 2px solid #e3e3e3;
   border-radius: 0.25rem;
-  background-color: white;
   &:focus-within {
     border: 2px solid #ff8d00;
   }
