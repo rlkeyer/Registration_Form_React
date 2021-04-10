@@ -5,10 +5,12 @@ export const TextInput = ({
   value,
   onChange,
   placeholder,
+  type = "text",
 }: {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
+  type?: "text" | "email";
 }) => {
   return (
     <div className="TextInput">
@@ -17,6 +19,7 @@ export const TextInput = ({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
+        type={type}
       />
     </div>
   );

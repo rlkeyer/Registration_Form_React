@@ -1,17 +1,12 @@
 .RegistrationContainer {
-  background: linear-gradient(90deg, #ff8d00 24%, #fce404 100%);
-  height: 100%;
-  padding: 4rem;
-  &__title {
-    font-size: 1.125rem;
-  }
-  &__form {
-    border-radius: 5px;
-  }
+  width: 100%;
+  margin: 4rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
   &__header {
     padding: 1rem 2rem;
     height: 2rem;
-    background-color: #fafafa;
+    background-color: #fffaf5;
     border-radius: 5px 5px 0 0;
     border-bottom: 2px solid #e3e3e3;
     display: flex;
@@ -21,11 +16,15 @@
   &__logo {
     max-height: 100%;
   }
+  &__signin {
+    color: #ff8d00;
+    text-decoration: none;
+  }
   &__body {
     display: grid;
     gap: 1.5rem;
-    padding: 1rem 3rem 3rem 3rem;
-    background-color: #f5f5f5;
+    padding: 3rem 3rem 3rem 3rem;
+    background-color: #f5f0eb;
     border-radius: 0 0 5px 5px;
   }
   &__title {
@@ -33,7 +32,21 @@
   }
 }
 
-.svg {
-  width: 100%;
-  height: 100%;
+@media only screen and (max-width: 650px) {
+  .RegistrationContainer {
+    margin: 2rem;
+  }
+  .RegistrationContainer__header {
+    padding: 1rem;
+    font-size: 0.875rem;
+  }
+  .RegistrationContainer__body {
+    padding: 1rem;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .RegistrationContainer__account {
+    display: none;
+  }
 }

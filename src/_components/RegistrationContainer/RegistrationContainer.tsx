@@ -12,12 +12,19 @@ export const RegistrationContainer = () => {
           src={logo}
           className="RegistrationContainer__logo"
         />
-        <div>Already have an account? Log in</div>
+        <div>
+          <span className="RegistrationContainer__account">
+            Already have an account?{" "}
+          </span>
+          <a
+            href="https://apps.availity.com/availity/web/public.elegant.login"
+            className="RegistrationContainer__signin"
+          >
+            Sign in
+          </a>
+        </div>
       </div>
       <div className="RegistrationContainer__body">
-        <div className="RegistrationContainer__title">
-          Create your Availity account
-        </div>
         <RegistrationForm />
       </div>
     </div>

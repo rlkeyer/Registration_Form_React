@@ -10,10 +10,55 @@ export const RegistrationForm = () => {
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+
+  // ability to add custom validation logic for each input
+  const validation = {
+    validFirstName: !!firstName.length,
+    validLastName: !!lastName.length,
+    validNpiNumber: !!npiNumber.length,
+    validAddress: !!address.length,
+    validPhone: !!phone.length,
+    validEmail: !!email.length,
+  };
+
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    const {
+      validFirstName,
+      validLastName,
+      validNpiNumber,
+      validAddress,
+      validPhone,
+      validEmail,
+    } = validation;
+    if (
+      validFirstName &&
+      validLastName &&
+      validNpiNumber &&
+      validAddress &&
+      validPhone &&
+      validEmail
+    ) {
+      const data = {
+        firstName,
+        lastName,
+        npiNumber,
+        address,
+        phone,
+        email,
+      };
+      console.log({ formData: data });
+    } else {
+      console.log("Please complete all fields to continue");
+    }
+    e.preventDefault();
+  };
   return (
     <div className="RegistrationForm">
-      <div className="RegistrationForm__inputs">
-        <div className="RegistrationForm__inputs-names">
+      <form className="RegistrationForm__inputs" onSubmit={handleSubmit}>
+        <div className="RegistrationForm__title">
+          Create your Availity account
+        </div>
+        <div className="RegistrationForm__grid">
           <label>
             First Name:
             <TextInput
@@ -28,13 +73,16 @@ export const RegistrationForm = () => {
               onChange={(e) => setLastName(e.target.value)}
             />
           </label>
-        </div>
-        <div className="RegistrationForm__inputs-names">
           <label>
             NPI Number:
             <TextInput
               value={npiNumber}
-              onChange={(e) => setNpiNumber(e.target.value)}
+              onChange={(e) => {
+                // only allow numbers in NPI input
+                const re = /^[0-9\b]+$/;
+                if (e.target.value === "" || re.test(e.target.value))
+                  setNpiNumber(e.target.value);
+              }}
             />
           </label>
           <label>
@@ -44,29 +92,36 @@ export const RegistrationForm = () => {
               onChange={(e) => setAddress(e.target.value)}
             />
           </label>
-        </div>
-        <div className="RegistrationForm__inputs-names">
           <label>
             Phone Number:
             <TextInput
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={(e) => {
+                // only allow numbers in Phone input
+                const re = /^[0-9\b]*$/;
+                if (re.test(e.target.value)) setPhone(e.target.value);
+              }}
             />
           </label>
           <label>
             Email:
             <TextInput
               value={email}
+              type="email"
               onChange={(e) => setEmail(e.target.value)}
             />
           </label>
         </div>
-        <button className="RegistrationForm__inputs-submit" type="submit">
+        <button
+          className="RegistrationForm__inputs-submit"
+          type="submit"
+          onSubmit={handleSubmit}
+        >
           Create Account
         </button>
-      </div>
+      </form>
       <div className="RegistrationForm__medical-logo">
-        <MedicalLogo className="svg" />
+        <MedicalLogo className="RegistrationForm__svg" />
       </div>
     </div>
   );

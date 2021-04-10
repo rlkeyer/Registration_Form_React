@@ -1,4 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Cabin&display=swap");
 .App {
-  height: 100vh;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, #ff8d00 0%, #fce404 100%);
 }
