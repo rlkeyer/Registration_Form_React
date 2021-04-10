@@ -1,12 +1,11 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { RegistrationForm } from "./_components/RegistrationForm/RegistrationForm";
+import { RegistrationContainer } from "./_components/RegistrationContainer/RegistrationContainer";
 
 function App() {
   return (
     <div className="App">
-      <RegistrationForm />
+      <RegistrationContainer />
     </div>
   );
 }
