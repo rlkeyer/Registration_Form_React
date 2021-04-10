@@ -5,7 +5,7 @@ import "./RegistrationConfirmation.scss";
 export const RegistrationConfirmation = () => {
   return (
     <div className="RegistrationConfirmation">
-      <div>
+      <div className="RegistrationConfirmation__text">
         Thank you for registering! You will receive a confirmation email
         shortly.
       </div>
