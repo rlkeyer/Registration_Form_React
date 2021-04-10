@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { RegistrationContainer } from "./_components/RegistrationContainer/RegistrationContainer";
+import { RegistrationContainer } from "./_components";
 
 function App() {
   return (

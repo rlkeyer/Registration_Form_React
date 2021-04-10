@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "./RegistrationContainer.scss";
 import logo from "./availity_logo.png";
-import { RegistrationForm } from "../RegistrationForm";
-import { RegistrationConfirmation } from "../RegistrationConfirmation";
+import { RegistrationForm, RegistrationConfirmation } from "..";
 
 export const RegistrationContainer = () => {
   const [validRegistration, setValidRegistration] = useState(false);

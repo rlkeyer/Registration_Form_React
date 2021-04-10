@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { TextInput } from "../TextInput";
-import { ReactComponent as MedicalLogo } from "../../undraw_medicine.svg";
+import { ReactComponent as MedicalLogo } from "./undraw_medicine.svg";
 import "./RegistrationForm.scss";
-import { Button } from "../Button";
+import { Button, TextInput } from "..";
 
 export const RegistrationForm = ({
   onSubmit,
@@ -15,6 +14,7 @@ export const RegistrationForm = ({
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [isComplete, setIsComplete] = useState<boolean>();
 
   // ability to add custom validation logic for each input
   const validation = {
@@ -51,10 +51,11 @@ export const RegistrationForm = ({
         phone,
         email,
       };
+      // currently logging the form data
       console.log({ formData: data });
       onSubmit(true);
     } else {
-      console.log("Please complete all fields to continue");
+      setIsComplete(false);
       onSubmit(false);
     }
     e.preventDefault();
@@ -120,6 +121,15 @@ export const RegistrationForm = ({
           </label>
         </div>
         <Button type="submit">Create Account</Button>
+        <span
+          className={`RegistrationForm__warning ${
+            typeof isComplete !== "undefined" && !isComplete
+              ? "RegistrationForm__warning--is-visible"
+              : ""
+          }`}
+        >
+          Please fill out all fields to continue.
+        </span>
       </form>
       <div className="RegistrationForm__medical-logo">
         <MedicalLogo className="RegistrationForm__svg" />
