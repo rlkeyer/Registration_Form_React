@@ -1,5 +1,7 @@
 # Registration Form
 
+The form is responsive down to tablet and mobile sizes.
+
 Run `npm install` and then:
 
 ## Available Scripts
