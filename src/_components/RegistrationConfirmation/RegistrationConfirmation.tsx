@@ -14,7 +14,7 @@ export const RegistrationConfirmation = () => {
           (window.location.href =
             "https://apps.availity.com/availity/web/public.elegant.login")
         }
-        id="RegistrationConfirmation__signin"
+        className="RegistrationConfirmation__signin"
       >
         Sign In
       </Button>

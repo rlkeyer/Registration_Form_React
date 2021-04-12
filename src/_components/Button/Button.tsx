@@ -5,6 +5,7 @@ type ButtonType = {
   onClick?: () => void;
   type?: "submit" | "button";
   id?: string;
+  className?: string;
 };
 
 export const Button: React.FC<ButtonType> = ({
@@ -12,9 +13,15 @@ export const Button: React.FC<ButtonType> = ({
   onClick,
   type = "button",
   id,
+  className,
 }) => {
   return (
-    <button className="Button" type={type} onClick={onClick} id={id}>
+    <button
+      className={`Button ${className ? className : ""}`}
+      type={type}
+      onClick={onClick}
+      id={id}
+    >
       {children}
     </button>
   );
