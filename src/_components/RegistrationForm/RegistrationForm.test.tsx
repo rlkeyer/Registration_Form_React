@@ -14,7 +14,7 @@ test("clicking Create Account button fires onSubmit function", () => {
   const { getByText } = render(<RegistrationForm onSubmit={handleSubmit} />);
   const createAccount = getByText("Create Account");
   fireEvent.click(createAccount);
-  expect(handleSubmit).toHaveBeenCalledTimes(1);
+  expect(handleSubmit).toHaveBeenCalled();
 });
 
 test("clicking Create Account button without all inputs filled shows warning text", () => {
