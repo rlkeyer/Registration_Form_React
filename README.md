@@ -1,6 +1,6 @@
 # Registration Form
 
-The form is responsive down to tablet and mobile sizes.
+The form is responsive down to tablet and mobile sizes.  There is basic validation on the form inputs to make sure the form cannot be submitted without values in each input.  In addition, the email input is validated using the basic HTML email input.  The phone and NPI number inputs only allow numbers via regex validation.
 
 Run `npm install` and then:
 
